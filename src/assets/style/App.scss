@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+
+.header {
+  background-color: #282c34;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer {
+  background-color: #4DB6AC;
+  min-height: 30px;
+}
+
+.icdf-logo {
+  margin-right: 10px;
+  height: 50px;
+}
+
+.title {
+  color: white;
+  margin-left: 15px;
+  font-size: 40px;
+}
