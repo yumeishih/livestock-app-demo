@@ -1,16 +1,24 @@
-import React, { Component } from 'react'
-import Header from 'Components/header'
+import React from 'react'
+import NavBar from 'Components/navigationBar'
+import Calculator from 'Components/calculator'
+import LearnMore from 'Components/learnMore'
+import AboutUs from 'Components/aboutUs'
+import ContactUs from 'Components/contactUs'
+import { TinyButton as ScrollUpButton } from 'react-scroll-up-button'
 import Footer from 'Components/footer'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Header />
-        <Footer />
-      </div>
-    );
-  }
+const App = () => {
+  return (
+    <div>
+      <ScrollUpButton />
+      <NavBar />
+      <Calculator />
+      <LearnMore />
+      <AboutUs />
+      <ContactUs />
+      <Footer />
+    </div>
+  )
 }
 
-export default App;
+export default App

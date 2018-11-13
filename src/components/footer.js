@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Footer  = () => {
+const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="text-center">
     </footer>
   )
 }
