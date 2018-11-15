@@ -1,16 +1,18 @@
 import React, { PureComponent } from 'react'
-import { FLOCK_STATUS, FEED_TYPES, UNIT } from 'Utils/const'
+import { FLOCK_STATUS, FEED_TYPES, UNIT, GRASS_ENERGY_TYPES } from 'Utils/const'
 import { calculateEnergyAll, calculateDiffAll } from 'Utils/util'
-import { zipObject } from 'lodash'
+import { zipObject, isEmpty } from 'lodash'
+import ResultTable from 'Components/resultTable'
 
 class Calculator extends PureComponent {
   constructor(props) {
     super(props)
     const initFeedValue = zipObject(FEED_TYPES, new Array(FEED_TYPES.length).fill(0))
     this.state = {
-      energyResult: {},
+      energyResult: zipObject(GRASS_ENERGY_TYPES, new Array(GRASS_ENERGY_TYPES.length).fill(0)),
       diffResult: {},
       flockStatus: FLOCK_STATUS[0],
+      showResult: false,
       ...initFeedValue
     }
     this.generateFeedList = this.generateFeedList.bind(this)
@@ -64,11 +66,22 @@ class Calculator extends PureComponent {
     e.preventDefault()
     const energyResult = calculateEnergyAll(this.state)
     const diffResult = calculateDiffAll(this.state.flockStatus, energyResult)
-    this.setState({ energyResult, diffResult })
+    this.setState({
+      energyResult,
+      diffResult,
+      showResult: true
+    })
     return false
   }
 
   render() {
+    const {
+      showResult,
+      energyResult,
+      diffResult,
+      flockStatus
+    } = this.state
+
     return (
       <div className="container" id="calculator">
         <h3 className="text-center"> Calculator</h3>
@@ -89,8 +102,13 @@ class Calculator extends PureComponent {
             <button onClick={this.handleSubmit} className="send-data">Send data</button>
           </form>
           <div className="result">
-            This is caculated result.
-            <p>Coming Soon</p>
+            <div>Nutrition Result</div>
+            {showResult &&
+              <ResultTable
+                energyResult={energyResult}
+                diffResult={diffResult}
+                flockStatus={flockStatus}
+              />}
           </div>
         </div>
       </div>

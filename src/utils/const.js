@@ -11,6 +11,7 @@ export const GRASS_ENERGY_TYPES_UNIT = {
   Ca: '%DM',
   Phosphorus: '%DM'
 }
+export const resultTableHeader = ['Supply', 'Require', 'Balance']
 
 export const FEED_TYPES = [
   'Aruana',
@@ -30,8 +31,6 @@ export const GRASS_ENERGY_TYPES = [
   'TDN',
   'DE',
   'ME',
-  'NDF',
-  'ADF',
   'CP',
   'Ca',
   'Phosphorus'

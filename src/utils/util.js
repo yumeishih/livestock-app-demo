@@ -16,8 +16,13 @@ const calculateEnergy = (grassEnergyType, feedValue) => {
   return (result / 100)
 }
 
-export const calculateEnergyAll = ({ flockStatus, ...feedValue }) => {
-  const energyResult = zipObject(GRASS_ENERGY_TYPES, new Array(GRASS_ENERGY_TYPES.length).fill(0))
+export const calculateEnergyAll = ({
+  flockStatus,
+  energyResult,
+  diffResult,
+  showResult,
+  ...feedValue
+}) => {
   forIn(energyResult, (value, key) => {
     energyResult[key] = calculateEnergy(key, feedValue)
   })
