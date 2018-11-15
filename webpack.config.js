@@ -10,6 +10,10 @@ module.exports = {
     filename: 'bundle.js',
     path: `${__dirname}/dist/`,
   },
+  devServer: {
+    host: '192.168.1.35',
+    disableHostCheck: true
+  },
   resolve: {
     alias: {
       Src: path.resolve(__dirname, 'src'),
