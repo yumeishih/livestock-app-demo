@@ -1,15 +1,22 @@
 import React, { PureComponent } from 'react'
 import { FLOCK_STATUS, FEED_TYPES, UNIT } from 'Utils/const'
+import { calculateEnergyAll, calculateDiffAll } from 'Utils/util'
 import { zipObject } from 'lodash'
 
 class Calculator extends PureComponent {
   constructor(props) {
     super(props)
     const initFeedValue = zipObject(FEED_TYPES, new Array(FEED_TYPES.length).fill(0))
-    this.state = { flockStatus: '', ...initFeedValue }
+    this.state = {
+      energyResult: {},
+      diffResult: {},
+      flockStatus: FLOCK_STATUS[0],
+      ...initFeedValue
+    }
     this.generateFeedList = this.generateFeedList.bind(this)
     this.handleFeedInput = this.handleFeedInput.bind(this)
     this.handleFlockChange = this.handleFlockChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleFeedInput(e) {
@@ -53,12 +60,20 @@ class Calculator extends PureComponent {
     )
   }
 
+  handleSubmit(e) {
+    e.preventDefault()
+    const energyResult = calculateEnergyAll(this.state)
+    const diffResult = calculateDiffAll(this.state.flockStatus, energyResult)
+    this.setState({ energyResult, diffResult })
+    return false
+  }
+
   render() {
     return (
       <div className="container" id="calculator">
         <h3 className="text-center"> Calculator</h3>
         <div className="calculator-content">
-          <form className="input-form" onSubmit={this.handleSubmit} >
+          <form className="input-form">
             <div>Flock Statue</div>
             <div className="flock-statue-content">
               <label>
@@ -71,7 +86,7 @@ class Calculator extends PureComponent {
             <div className="feed-supply-content">
               {FEED_TYPES.map(this.generateFeedList)}
             </div>
-            <button className="send-data">Send data</button>
+            <button onClick={this.handleSubmit} className="send-data">Send data</button>
           </form>
           <div className="result">
             This is caculated result.

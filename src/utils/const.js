@@ -1,6 +1,16 @@
 export const ICDF_LINK = 'http://www.icdf.org.tw/ct.asp?xItem=52227&ctNode=29877&mp=2j5QEKxz0rKT0Mjva6u5YtilodjSEJ2SHD_po1Z5GTiaO4'
 
 export const UNIT = 'Kg/Day'
+export const GRASS_ENERGY_TYPES_UNIT = {
+  TDN: '%DM',
+  DE: 'Mcal/kg',
+  ME: 'Mcal/kg',
+  NDF: '%DM',
+  ADF: '%DM',
+  CP: '%DM',
+  Ca: '%DM',
+  Phosphorus: '%DM'
+}
 
 export const FEED_TYPES = [
   'Aruana',
@@ -16,15 +26,13 @@ export const FEED_TYPES = [
   'Concenration'
 ]
 
-export const GROSS_ENERGY_TYPES = [
+export const GRASS_ENERGY_TYPES = [
   'TDN',
   'DE',
   'ME',
   'NDF',
   'ADF',
   'CP',
-  'Fat',
-  'Ash',
   'Ca',
   'Phosphorus'
 ]
@@ -247,137 +255,115 @@ export const DM_PERCENTAGE = {
   Concenration: 98
 }
 
-export const GROSS_ENERGY = {
+export const GRASS_ENERGY = {
   Aruana: {
-    TDN: 57.00,
+    TDN: 0.57,
     DE: 2.47,
     ME: 2.03,
-    NDF: 37.00,
-    ADF: 75.00,
-    CP: 6.00,
-    Fat: 1.60,
-    Ash: null,
-    Ca: 0.71,
-    Phosphorus: 0.59
+    NDF: 0.37,
+    ADF: 0.75,
+    CP: 60,
+    Ca: 7.1,
+    Phosphorus: 5.9
   },
   Maralfafal: {
-    TDN: 64.00,
+    TDN: 0.64,
     DE: 2.44,
     ME: 2.19,
-    NDF: 71.00,
-    ADF: 42.00,
-    CP: 11.00,
-    Fat: 1.76,
-    Ash: null,
-    Ca: 0.36,
-    Phosphorus: 0.29
+    NDF: 0.71,
+    ADF: 0.42,
+    CP: 110,
+    Ca: 3.6,
+    Phosphorus: 2.9
   },
   Mulberry: {
-    TDN: 69.10,
+    TDN: 0.691,
     DE: 2.99,
     ME: 2.39,
-    NDF: 32.00,
-    ADF: 19.40,
-    CP: 19.40,
-    Fat: 5.60,
-    Ash: 13.20,
-    Ca: 2.74,
-    Phosphorus: 0.45
+    NDF: 0.32,
+    ADF: 0.194,
+    CP: 194,
+    Ca: 27.4,
+    Phosphorus: 4.5
   },
   CitrusPulp: {
-    TDN: 80.38,
+    TDN: 0.8038,
     DE: 3.47,
     ME: 3.12,
-    NDF: 24.20,
-    ADF: 22.20,
-    CP: 6.90,
-    Fat: 3.90,
-    Ash: 7.2,
-    Ca: 1.92,
-    Phosphorus: 0.12
+    NDF: 0.242,
+    ADF: 0.222,
+    CP: 69,
+    Ca: 19.2,
+    Phosphorus: 1.2
   },
   GroundCorn: {
-    TDN: 88.00,
+    TDN: 0.88,
     DE: 3.84,
     ME: 3.25,
-    NDF: 12.20,
-    ADF: 3.00,
-    CP: 9.40,
-    Fat: null,
-    Ash: null,
-    Ca: 0.50,
-    Phosphorus: 3.00
+    NDF: 0.122,
+    ADF: 0.03,
+    CP: 94,
+    Ca: 5,
+    Phosphorus: 30
   },
   SorghumGrain: {
-    TDN: 87.40,
+    TDN: 0.874,
     DE: 3.82,
     ME: 3.22,
-    NDF: 11.00,
-    ADF: 4.30,
-    CP: 11.00,
-    Fat: null,
-    Ash: 2.10,
-    Ca: 0.04,
-    Phosphorus: 0.32
+    NDF: 0.11,
+    ADF: 0.0430,
+    CP: 110,
+    Ca: 0.4,
+    Phosphorus: 3.2
   },
   SoyBeanMeal: {
-    TDN: 84.00,
+    TDN: 0.84,
     DE: 4.34,
     ME: 3.25,
-    NDF: 15.00,
-    ADF: 10.00,
-    CP: 49.00,
-    Fat: null,
-    Ash: 7,
-    Ca: 0.36,
-    Phosphorus: 0.70
+    NDF: 0.15,
+    ADF: 0.10,
+    CP: 490,
+    Ca: 3.6,
+    Phosphorus: 7
   },
   FullFatSoyBean: {
-    TDN: 94.00,
+    TDN: 0.94,
     DE: 3.41,
     ME: 3.07,
-    NDF: 32.00,
-    ADF: 19.40,
-    CP: 19.40,
-    Fat: 5.60,
-    Ash: 1.32,
-    Ca: 2.47,
-    Phosphorus: 0.45
+    NDF: 0.32,
+    ADF: 0.194,
+    CP: 194,
+    Ca: 24.7,
+    Phosphorus: 4.5
   },
   GroundBlackeye: {
-    TDN: 90.00,
+    TDN: 0.90,
     DE: 4.03,
     ME: 3.25,
-    NDF: 16.60,
-    ADF: 6.60,
-    CP: 25.20,
-    Fat: null,
-    Ash: null,
-    Ca: 1.10,
-    Phosphorus: 4.20
+    NDF: 0.166,
+    ADF: 0.066,
+    CP: 252,
+    Ca: 11,
+    Phosphorus: 42
   },
   Molasses: {
-    TDN: 80.94,
+    TDN: 0.8094,
     DE: 3.47,
     ME: 3.12,
-    NDF: 0.4,
-    ADF: 0.2,
-    CP: 5.8,
-    Fat: 0.2,
-    Ash: 13.3,
-    Ca: 1,
-    Phosphorus: 0.1
+    NDF: 0.004,
+    ADF: 0.002,
+    CP: 58,
+    Ca: 10,
+    Phosphorus: 1
   },
   Concenration: {
-    TDN: 92,
+    TDN: 0.92,
     DE: 3.2,
     ME: 2.88,
-    NDF: 15,
-    ADF: 25,
-    CP: 14,
-    Fat: null,
-    Ash: null,
-    Ca: 1,
-    Phosphorus: 0.75
+    NDF: 0.15,
+    ADF: 0.25,
+    CP: 140,
+    Ca: 10,
+    Phosphorus: 7.5
   }
 }
