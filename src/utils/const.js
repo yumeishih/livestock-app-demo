@@ -1,5 +1,7 @@
 export const ICDF_LINK = 'http://www.icdf.org.tw/ct.asp?xItem=52227&ctNode=29877&mp=2j5QEKxz0rKT0Mjva6u5YtilodjSEJ2SHD_po1Z5GTiaO4'
 
+export const UNIT = 'Kg/Day'
+
 export const FEED_TYPES = [
   'Aruana',
   'Maralfafal',

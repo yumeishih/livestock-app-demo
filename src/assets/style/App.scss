@@ -35,7 +35,7 @@
 }
 
 // Navigation bar
-.navbar li a, .navbar .navbar-brand { 
+.navbar li a, .navbar .navbar-brand {
   color: $light-grey !important;
 }
 
@@ -52,10 +52,7 @@
   border-color: transparent;
 }
 
-.form-control {
-  border-radius: 0;
-}
-
+// Contact Us
 .icdf-logo {
   img {
     height: 64px;
@@ -82,6 +79,7 @@
   }
 }
 
+//Calculator
 .calculator-content {
   display: flex;
   justify-content: center;
@@ -90,10 +88,128 @@
   .result {
     border: 1.5px solid #333;
     border-radius: 10px;
-    margin: 12px;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .input-form {
+    flex: 1;
+  }
+
+  .result {
+    margin-top: 0;
+    margin-left: 12px;
+    flex-grow: 0.5;
   }
 
   @media screen and (max-width: $device-sm) {
     flex-direction: column;
+
+    .result {
+      margin-top: 12px;
+      margin-left: 0;
+    }
+  }
+
+  .flock-statue-content {
+    select {
+      background-color: transparent;
+      text-align-last:center;
+      margin: 8px 0 32px;
+      font-size: 18px;
+      font-weight: bold;
+      width: 100%;
+    }
+
+    label {
+      position:relative;
+      width: 68%;
+
+      &:after {
+        content:"\f078";
+        font-family: "FontAwesome";
+        font-size: 11px;
+        color:#aaa;
+        right:12px;
+        top:16px;
+        padding:0 0 2px;
+        position:absolute;
+        pointer-events:none;
+      }
+    }
+  }
+
+  .feed-supply-content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 80%;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    @media screen and (max-width: $device-sm) {
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    @media screen and (min-width: $device-lg) {
+      min-width: 100%;
+      padding: 12px;
+    }
+
+    .feed {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+
+      @media screen and (max-width: $device-sm) {
+        justify-content: center;
+      }
+
+      @media screen and (min-width: $device-lg) {
+        width: 48%;
+        padding: 0 8px;
+
+        &:nth-child(odd) {
+          margin-right: 4px;
+        }
+      }
+    }
+
+    .feed-label {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+      flex: 1;
+    }
+
+    .feed-input-wrapper {
+      display: inline-flex;
+      flex-wrap: nowrap;
+    }
+
+    .feed-input {
+      margin: 0 4px;
+      height: 24px;
+      width: 38px;
+      border: 1px solid $light-grey;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .feed-unit {
+      font-size: 12px;
+      color: $middle-grey;
+    }
+  }
+
+  .send-data {
+    align-self: center;
+    border: 1px solid $light-grey;
+    background-color: transparent;
+    border-radius: 4px;
   }
 }
+
