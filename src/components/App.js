@@ -1,7 +1,8 @@
 import React from 'react'
 import NavBar from 'Components/navigationBar'
 import Calculator from 'Components/calculator'
-import LearnMore from 'Components/learnMore'
+import Registration from 'Components/registration'
+import Record from 'Components/record'
 import AboutUs from 'Components/aboutUs'
 import ContactUs from 'Components/contactUs'
 import { TinyButton as ScrollUpButton } from 'react-scroll-up-button'
@@ -13,7 +14,8 @@ const App = () => {
       <ScrollUpButton />
       <NavBar />
       <Calculator />
-      <LearnMore />
+      <Registration />
+      <Record />
       <AboutUs />
       <ContactUs />
       <Footer />

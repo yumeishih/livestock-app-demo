@@ -30,7 +30,8 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="myNavbar">
           <ul className="nav navbar-nav navbar-right">
             <li><a href="#calculator">CALCULATOR</a></li>
-            <li><a href="#learnMore">LEARN MORE</a></li>
+            <li><a href="#registration">REGISTRATION</a></li>
+            <li><a href="#record">RECORD</a></li>
             <li><a href="#aboutUs">ABOUT US</a></li>
             <li><a href="#contact">CONTACT US</a></li>
           </ul>

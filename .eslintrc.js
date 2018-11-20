@@ -37,7 +37,6 @@ module.exports = {
     "no-console": 0,
     "react/no-array-index-key": 0,
     "jsx-a11y/label-has-for": 0,
-    "react/no-did-update-set-state": 0
   },
   settings:{
     'import/resolver': 'webpack',
