@@ -11,7 +11,7 @@ module.exports = {
     path: `${__dirname}/dist/`,
   },
   devServer: {
-    host: '192.168.1.35',
+    host: '0.0.0.0',
     disableHostCheck: true
   },
   resolve: {
