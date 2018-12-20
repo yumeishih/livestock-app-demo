@@ -96,8 +96,7 @@
   }
 }
 
-.common-drop-down
-{
+.common-drop-down {
   select {
     background-color: transparent;
     text-align-last:center;
@@ -317,11 +316,16 @@
     }
   }
 
-  .send-data {
+  .send-data,
+  .reset-data {
     align-self: center;
     border: 1px solid $light-grey;
     background-color: transparent;
-    border-radius: 4px;
+    border-radius: 2px;
+  }
+
+  .reset-data {
+    margin-right: 4px;
   }
 }
 

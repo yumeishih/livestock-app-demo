@@ -19,6 +19,7 @@ class Calculator extends PureComponent {
     this.handleFeedInput = this.handleFeedInput.bind(this)
     this.handleFlockChange = this.handleFlockChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleReset = this.handleReset.bind(this)
   }
 
   handleFeedInput(e) {
@@ -74,6 +75,20 @@ class Calculator extends PureComponent {
     return false
   }
 
+  handleReset(e) {
+    e.preventDefault()
+    const initFeedValue = zipObject(FEED_TYPES, new Array(FEED_TYPES.length).fill(0))
+    const energyResult = zipObject(GRASS_ENERGY_TYPES, new Array(GRASS_ENERGY_TYPES.length).fill(0))
+    const diffResult = calculateDiffAll(this.state.flockStatus, energyResult)
+
+    this.setState({
+      energyResult,
+      diffResult,
+      ...initFeedValue
+    })
+    return false
+  }
+
   render() {
     const {
       showResult,
@@ -99,7 +114,8 @@ class Calculator extends PureComponent {
             <div className="feed-supply-content">
               {FEED_TYPES.map(this.generateFeedList)}
             </div>
-            <button onClick={this.handleSubmit} className="send-data">Send data</button>
+            <button onClick={this.handleReset} className="reset-data">Reset</button>
+            <button onClick={this.handleSubmit} className="send-data">Send</button>
           </form>
           <div className="result">
             <div>Nutrition Result</div>
