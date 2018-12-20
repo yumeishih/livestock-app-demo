@@ -31,7 +31,11 @@ class Calculator extends PureComponent {
 
   handleFlockChange = (e) => {
     const { value } = e.target
-    this.setState({ flockStatus: value })
+    const diffResult = calculateDiffAll(value, this.state.energyResult)
+    this.setState({
+      flockStatus: value,
+      diffResult
+    })
   }
 
   generateFeedList(feed, index) {
