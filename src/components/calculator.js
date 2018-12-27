@@ -36,6 +36,7 @@ class Calculator extends PureComponent {
       flockStatus: value,
       diffResult
     })
+    this.handleReset(e)
   }
 
   generateFeedList(feed, index) {
